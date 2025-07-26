@@ -1,10 +1,9 @@
 import CvHeader from "./CvHeader";
-import "../styles/Cv.css";
 import CvBody from "./CvBody";
 
 export default function Cv({ cvData }) {
   return (
-    <div className="cv">
+    <div style={{ marginTop: "10px", marginLeft: "30px" }}>
       <CvHeader cvData={cvData} />
       <CvBody cvData={cvData} />
     </div>
