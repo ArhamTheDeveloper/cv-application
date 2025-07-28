@@ -16,6 +16,7 @@ export default function CvEditor({
   onHandleReset,
   accentColor,
   setAccentColor,
+  setFont,
 }) {
   return (
     <div className="cv_editor">
@@ -159,6 +160,26 @@ export default function CvEditor({
           }}
         />
       </label>
+      <div
+        className="font-btns"
+        style={{
+          display: "flex",
+          marginLeft: "10px",
+          marginTop: "8px",
+          marginBottom: "8px",
+          gap: "6px",
+        }}
+      >
+        <h4>Fonts</h4>
+        <Button
+          onClickHandler={() => setFont("Noto Sans, sans-serif")}
+          text={"Sans"}
+        />
+        <Button
+          onClickHandler={() => setFont("monospace")}
+          text={"monospace"}
+        />
+      </div>
     </div>
   );
 }

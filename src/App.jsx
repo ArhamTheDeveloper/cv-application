@@ -38,6 +38,7 @@ function App() {
   const [accentColor, setAccentColor] = useState(
     protoCvData.generalInfo.accentColor
   );
+  const [font,setFont] = useState("Noto Sans, sans-serif")
 
   const handleChange = (section, field, value, index = null) => {
     setCvData((prev) => {
@@ -102,7 +103,7 @@ function App() {
       <Navbar />
       <div className="cv_parent">
         <div className="cv-print-area">
-          <Cv cvData={cvData} accentColor={accentColor} />
+          <Cv cvData={cvData} accentColor={accentColor} font={font} />
         </div>
         <CvEditor
           cvData={cvData}
@@ -113,6 +114,7 @@ function App() {
           onHandleReset={handleReset}
           accentColor={accentColor}
           setAccentColor={setAccentColor}
+          setFont={setFont}
         />
       </div>
     </div>

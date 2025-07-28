@@ -2,7 +2,7 @@ function hasNonEmpty(arr, keys) {
   return (arr || []).some((obj) => keys.some((key) => obj[key]));
 }
 
-export default function CvBody({ cvData, accentColor }) {
+export default function CvBody({ cvData, accentColor, font }) {
   const showEducation = hasNonEmpty(cvData.education, [
     "school",
     "degree",
@@ -24,6 +24,7 @@ export default function CvBody({ cvData, accentColor }) {
         width: "800px",
         minHeight: "650px",
         color: "black",
+        fontFamily: font,
       }}
     >
       {showEducation && (

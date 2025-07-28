@@ -1,6 +1,6 @@
 import { Mail, Phone, Locate } from "lucide-react";
 
-export default function CvHeader({ cvData, accentColor }) {
+export default function CvHeader({ cvData, accentColor, font }) {
   return (
     <div
       style={{
@@ -14,6 +14,7 @@ export default function CvHeader({ cvData, accentColor }) {
         alignItems: "center",
         justifyContent: "center",
         padding: "20px 0",
+        fontFamily: font,
       }}
     >
       {cvData.generalInfo.photo && (
