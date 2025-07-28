@@ -2,7 +2,7 @@ function hasNonEmpty(arr, keys) {
   return (arr || []).some((obj) => keys.some((key) => obj[key]));
 }
 
-export default function CvBody({ cvData }) {
+export default function CvBody({ cvData, accentColor }) {
   const showEducation = hasNonEmpty(cvData.education, [
     "school",
     "degree",
@@ -28,7 +28,17 @@ export default function CvBody({ cvData }) {
     >
       {showEducation && (
         <>
-          <h2 style={{ paddingTop: "35px", textAlign: "center" }}>Education</h2>
+          <h2
+            style={{
+              paddingTop: "35px",
+              textAlign: "center",
+              color: accentColor,
+              fontWeight: "800",
+              letterSpacing: "-1px",
+            }}
+          >
+            Education
+          </h2>
           {cvData.education.map((edu, idx) => (
             <div
               key={idx}
@@ -54,7 +64,15 @@ export default function CvBody({ cvData }) {
 
       {showWork && (
         <>
-          <h2 style={{ paddingTop: "35px", textAlign: "center" }}>
+          <h2
+            style={{
+              paddingTop: "35px",
+              textAlign: "center",
+              color: accentColor,
+              fontWeight: "800",
+              letterSpacing: "-1px",
+            }}
+          >
             Professional Experience
           </h2>
           {cvData.workExperience.map((work, idx) => (

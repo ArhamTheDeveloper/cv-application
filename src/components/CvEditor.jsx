@@ -14,6 +14,8 @@ export default function CvEditor({
   onDeleteSection,
   onLoadExample,
   onHandleReset,
+  accentColor,
+  setAccentColor,
 }) {
   return (
     <div className="cv_editor">
@@ -126,6 +128,37 @@ export default function CvEditor({
         <Button text={"Reset"} onClickHandler={onHandleReset} />
         <Button text={"Print CV"} onClickHandler={() => window.print()} />
       </div>
+      <label
+        htmlFor="accent-color"
+        style={{
+          display: "inline-block",
+          padding: "10px 20px",
+          background: "#fff",
+          color: "black",
+          borderRadius: "6px",
+          cursor: "pointer",
+          fontWeight: "bold",
+          margin: "10px",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
+        }}
+      >
+        Accent Color
+        <input
+          type="color"
+          id="accent-color"
+          value={accentColor}
+          onChange={(e) => setAccentColor(e.target.value)}
+          style={{
+            marginLeft: "10px",
+            width: "32px",
+            height: "32px",
+            border: "none",
+            background: "none",
+            cursor: "pointer",
+            verticalAlign: "middle",
+          }}
+        />
+      </label>
     </div>
   );
 }

@@ -12,6 +12,7 @@ const protoCvData = {
     phoneNumber: "",
     address: "",
     photo: "",
+    accentColor: "#0E374E",
   },
   education: [
     {
@@ -34,6 +35,9 @@ const protoCvData = {
 
 function App() {
   const [cvData, setCvData] = useState(protoCvData);
+  const [accentColor, setAccentColor] = useState(
+    protoCvData.generalInfo.accentColor
+  );
 
   const handleChange = (section, field, value, index = null) => {
     setCvData((prev) => {
@@ -90,6 +94,7 @@ function App() {
 
   const handleReset = () => {
     setCvData(protoCvData);
+    setAccentColor(protoCvData.generalInfo.accentColor);
   };
 
   return (
@@ -97,7 +102,7 @@ function App() {
       <Navbar />
       <div className="cv_parent">
         <div className="cv-print-area">
-          <Cv cvData={cvData} />
+          <Cv cvData={cvData} accentColor={accentColor} />
         </div>
         <CvEditor
           cvData={cvData}
@@ -106,6 +111,8 @@ function App() {
           onDeleteSection={handleDeleteSection}
           onLoadExample={handleLoadExample}
           onHandleReset={handleReset}
+          accentColor={accentColor}
+          setAccentColor={setAccentColor}
         />
       </div>
     </div>
