@@ -124,6 +124,7 @@ export default function CvEditor({
       >
         <Button text={"Load Example"} onClickHandler={onLoadExample} />
         <Button text={"Reset"} onClickHandler={onHandleReset} />
+        <Button text={"Print CV"} onClickHandler={() => window.print()} />
       </div>
     </div>
   );

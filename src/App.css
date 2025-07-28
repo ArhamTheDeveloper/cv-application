@@ -1,4 +1,28 @@
-.cv_parent{
-    display: flex;
-    gap: 10px;
+.cv_parent {
+  display: flex;
+  gap: 10px;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .cv-print-area,
+  .cv-print-area * {
+    visibility: visible !important;
+  }
+  .cv-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    background: transparent !important; /* Remove white background */
+    z-index: 9999;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cv-print-area > div {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
 }

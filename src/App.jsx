@@ -96,7 +96,9 @@ function App() {
     <div>
       <Navbar />
       <div className="cv_parent">
-        <Cv cvData={cvData} />
+        <div className="cv-print-area">
+          <Cv cvData={cvData} />
+        </div>
         <CvEditor
           cvData={cvData}
           onChange={handleChange}
