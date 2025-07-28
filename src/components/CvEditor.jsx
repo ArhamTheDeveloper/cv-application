@@ -12,6 +12,8 @@ export default function CvEditor({
   onChange,
   onAddSection,
   onDeleteSection,
+  onLoadExample,
+  onHandleReset,
 }) {
   return (
     <div className="cv_editor">
@@ -22,6 +24,38 @@ export default function CvEditor({
         onChange={onChange}
         sectionName="generalInfo"
       />
+      <label
+        htmlFor="photo-upload"
+        style={{
+          display: "inline-block",
+          padding: "10px 20px",
+          background: "#ffffffff",
+          color: "black",
+          borderRadius: "6px",
+          cursor: "pointer",
+          fontWeight: "bold",
+          margin: "10px",
+          boxShadow: "0 2px 8px rgba(0,0,0,0.07)",
+        }}
+      >
+        Upload Photo
+        <input
+          id="photo-upload"
+          type="file"
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={(e) => {
+            const file = e.target.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onloadend = () => {
+                onChange("generalInfo", "photo", reader.result);
+              };
+              reader.readAsDataURL(file);
+            }
+          }}
+        />
+      </label>
       {cvData.education.map((edu, idx) => (
         <Section
           key={idx}
@@ -78,6 +112,18 @@ export default function CvEditor({
           text={"Delete"}
           onClickHandler={() => onDeleteSection("workExperience")}
         />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          marginLeft: "10px",
+          marginTop: "8px",
+          marginBottom: "8px",
+          gap: "6px",
+        }}
+      >
+        <Button text={"Load Example"} onClickHandler={onLoadExample} />
+        <Button text={"Reset"} onClickHandler={onHandleReset} />
       </div>
     </div>
   );

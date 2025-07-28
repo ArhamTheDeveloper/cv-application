@@ -3,33 +3,37 @@ import "./App.css";
 import Cv from "./components/Cv";
 import CvEditor from "./components/CvEditor";
 import Navbar from "./components/Navbar";
+import { exampleData } from "./exampleData";
+
+const protoCvData = {
+  generalInfo: {
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
+    photo: "",
+  },
+  education: [
+    {
+      school: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+    },
+  ],
+  workExperience: [
+    {
+      company: "",
+      position: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
+  ],
+};
 
 function App() {
-  const [cvData, setCvData] = useState({
-    generalInfo: {
-      fullName: "",
-      email: "",
-      phoneNumber: "",
-      address: "",
-    },
-    education: [
-      {
-        school: "",
-        degree: "",
-        startDate: "",
-        endDate: "",
-      },
-    ],
-    workExperience: [
-      {
-        company: "",
-        position: "",
-        startDate: "",
-        endDate: "",
-        description: "",
-      },
-    ],
-  });
+  const [cvData, setCvData] = useState(protoCvData);
 
   const handleChange = (section, field, value, index = null) => {
     setCvData((prev) => {
@@ -80,6 +84,14 @@ function App() {
     }));
   };
 
+  const handleLoadExample = () => {
+    setCvData(exampleData);
+  };
+
+  const handleReset = () => {
+    setCvData(protoCvData);
+  };
+
   return (
     <div>
       <Navbar />
@@ -90,6 +102,8 @@ function App() {
           onChange={handleChange}
           onAddSection={handleAddSection}
           onDeleteSection={handleDeleteSection}
+          onLoadExample={handleLoadExample}
+          onHandleReset={handleReset}
         />
       </div>
     </div>

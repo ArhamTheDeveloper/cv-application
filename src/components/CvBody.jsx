@@ -22,7 +22,7 @@ export default function CvBody({ cvData }) {
       style={{
         backgroundColor: "#dbdbdb",
         width: "800px",
-        minHeight: "700px",
+        minHeight: "650px",
         color: "black",
       }}
     >

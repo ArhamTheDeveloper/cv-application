@@ -13,8 +13,21 @@ export default function CvHeader({ cvData }) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        padding:"20px 0"
       }}
     >
+      {cvData.generalInfo.photo && (
+        <img
+          src={cvData.generalInfo.photo}
+          alt="Profile"
+          style={{
+            width: "70px",
+            height: "70px",
+            objectFit: "cover",
+            borderRadius: "50%",
+          }}
+        />
+      )}
       <h1 style={{ marginBottom: "10px" }}>{cvData.generalInfo.fullName}</h1>
       <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
         {cvData.generalInfo.email && (
