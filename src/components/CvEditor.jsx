@@ -20,6 +20,7 @@ export default function CvEditor({
 }) {
   return (
     <div className="cv_editor">
+      {/* General Information Section */}
       <Section
         heading="General Information"
         fields={generalInfoFields}
@@ -27,6 +28,7 @@ export default function CvEditor({
         onChange={onChange}
         sectionName="generalInfo"
       />
+      {/* Photo Input tag */}
       <label
         htmlFor="photo-upload"
         style={{
@@ -59,6 +61,8 @@ export default function CvEditor({
           }}
         />
       </label>
+
+      {/* Education Section  */}
       {cvData.education.map((edu, idx) => (
         <Section
           key={idx}
@@ -70,6 +74,7 @@ export default function CvEditor({
           index={idx}
         />
       ))}
+      {/* Add and Delete Education Section buttons */}
       <div
         className="buttons"
         style={{
@@ -86,6 +91,7 @@ export default function CvEditor({
         />
       </div>
 
+      {/* WorkExperience Section */}
       {cvData.workExperience.map((work, idx) => (
         <Section
           key={idx}
@@ -97,6 +103,7 @@ export default function CvEditor({
           index={idx}
         />
       ))}
+      {/* Add and Delete WorkExperience Section buttons */}
       <div
         className="buttons"
         style={{
@@ -116,6 +123,8 @@ export default function CvEditor({
           onClickHandler={() => onDeleteSection("workExperience")}
         />
       </div>
+
+      {/* Additional functionality buttons */}
       <div
         style={{
           display: "flex",
@@ -129,6 +138,8 @@ export default function CvEditor({
         <Button text={"Reset"} onClickHandler={onHandleReset} />
         <Button text={"Print CV"} onClickHandler={() => window.print()} />
       </div>
+
+      {/* Color Input tag */}
       <label
         htmlFor="accent-color"
         style={{
@@ -160,6 +171,8 @@ export default function CvEditor({
           }}
         />
       </label>
+
+      {/* Change font buttons */}
       <div
         className="font-btns"
         style={{
