@@ -17,6 +17,7 @@ export default function CvHeader({ cvData, accentColor, font }) {
         fontFamily: font,
       }}
     >
+      {/* Conditional checking for photo */}
       {cvData.generalInfo.photo && (
         <img
           src={cvData.generalInfo.photo}
@@ -30,7 +31,9 @@ export default function CvHeader({ cvData, accentColor, font }) {
         />
       )}
       <h1 style={{ marginBottom: "10px" }}>{cvData.generalInfo.fullName}</h1>
+
       <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+        {/* Conditional checking for email coz of icon */}
         {cvData.generalInfo.email && (
           <div
             style={{
@@ -44,6 +47,7 @@ export default function CvHeader({ cvData, accentColor, font }) {
             <p>{cvData.generalInfo.email}</p>
           </div>
         )}
+        {/* Conditional checking for phoneNumber coz of icon */}
         {cvData.generalInfo.phoneNumber && (
           <div
             style={{
@@ -57,6 +61,7 @@ export default function CvHeader({ cvData, accentColor, font }) {
             <p>{cvData.generalInfo.phoneNumber}</p>
           </div>
         )}
+        {/* Conditional checking for address coz of icon */}
         {cvData.generalInfo.address && (
           <div
             style={{

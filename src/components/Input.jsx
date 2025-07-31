@@ -7,8 +7,7 @@ export default function ({ placeholder, name, id, value, onChange }) {
           padding: "8px 6px",
           border: "2px solid black",
           outline: "none",
-          borderRadius:"6px"
-          
+          borderRadius: "6px",
         }}
         type="text"
         name={name}

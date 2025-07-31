@@ -38,7 +38,7 @@ function App() {
   const [accentColor, setAccentColor] = useState(
     protoCvData.generalInfo.accentColor
   );
-  const [font,setFont] = useState("Noto Sans, sans-serif")
+  const [font, setFont] = useState("Noto Sans, sans-serif");
 
   const handleChange = (section, field, value, index = null) => {
     setCvData((prev) => {
